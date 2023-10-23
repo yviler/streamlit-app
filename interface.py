@@ -1,6 +1,6 @@
 from modeling import scoring, test_prediction
 from save_score import save_score
-from model import load_model
+from model import model_load
 from questions import load_question
 from tasks import load_tasks
 from courses import load_courses
