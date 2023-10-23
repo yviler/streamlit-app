@@ -6,6 +6,7 @@ from tasks import load_tasks
 from courses import load_courses
 from student_name import load_student_names
 from evaluate_score import evaluate_score
+from PIL import Image
 import streamlit as st
 import sqlite3 
 
