@@ -38,8 +38,8 @@ student_names = load_student_names(conn)
 courses = load_courses(conn)
 
 with st.sidebar:
-    image = Image.open('student.jpg')
-    st.image(image)
+    #image = Image.open('student.jpg')
+    #st.image(image)
 
     add_identity = st.sidebar.selectbox(
         "Student Identity", student_names
