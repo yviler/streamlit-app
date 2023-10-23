@@ -7,6 +7,7 @@ from courses import load_courses
 from student_name import load_student_names
 from evaluate_score import evaluate_score
 import streamlit as st
+import sqlite3
 
 st.set_page_config(page_title="Page Title", layout="wide")
 
