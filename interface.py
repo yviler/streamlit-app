@@ -1,4 +1,4 @@
-from modeling import scoring, test_prediction, course_info
+from modeling import scoring, test_prediction
 from save_score import save_score
 from model import load_model
 from questions import load_question
