@@ -10,3 +10,4 @@ transformers
 keras
 tensorflow 
 sqlite3
+PIL
