@@ -31,7 +31,7 @@ st.markdown("""
 head1 = st.header('Real Time Online Tutorial Test',  divider='rainbow')
 head2 = st.write('**Open University** | :sunglasses: **:blue[Automatic Essay Scoring]**')
 
-conn = sqlite3.connect('/content/gdrive/MyDrive/Asset/database_baru.db')
+conn = sqlite3.connect('database_baru.db')
 
 student_names = load_student_names(conn)
 courses = load_courses(conn)
