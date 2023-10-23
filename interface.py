@@ -54,7 +54,7 @@ with st.sidebar:
         "Choose Tutorial Task", load_tasks(conn, course_info)
     )
 
-question = load_question(course_info, task_info)
+question = load_question(conn, course_info, task_info)
 
 txt_soal1 = st.text_area("Question", question, disabled=True)
 
