@@ -1,4 +1,3 @@
-
 def load_question(conn, course_name, task_info, question_number):
   cursor = conn.cursor()
   question_num = str(task_info)+"_"+str(question_number)
