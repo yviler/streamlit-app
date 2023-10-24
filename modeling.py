@@ -74,7 +74,7 @@ def test_prediction(fileAddress, modelAddress, set, lang):
 
     #lstm_model = get_model(bidirectional=True)
     #modelAddress="aes_model_"+nama_model+set_problem+".h5"
-    print ("MODEL ADDRESS: ", modelAddress)
+    st.write("ADDRESS:",modelAddress)
     
     bilstm_model = load_model(modelAddress)
     bilstm_model.load_weights(modelAddress)
@@ -100,7 +100,6 @@ def scoring(conn, jawaban_student, selected_course, selected_task, selected_prob
           'essay': [jawaban_student]
           }
 
-  # print ("Sample Set:", sample)
   # print (jawaban_student)
   # creating the DataFrame
   df = pd.DataFrame(sample)
