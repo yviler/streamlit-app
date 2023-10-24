@@ -76,7 +76,7 @@ with tabq3:
   question3 = "Tidak ada soal."
   txt_soal3 = st.text_area(
     "Question 3",
-    questio3,
+    question,
     disabled=True
   )
 
