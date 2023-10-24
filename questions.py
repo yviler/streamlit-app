@@ -7,4 +7,4 @@ def load_question(conn, course_name, task_info, question_number):
   
   if result is None:
     result ='Tidak ada pertanyaan.'
-  return result
+  return result[0]
