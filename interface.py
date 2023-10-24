@@ -54,10 +54,11 @@ with st.sidebar:
         "Choose Tutorial Task", load_tasks(conn, course_info)
     )
 
-question = load_question(conn, course_info, task_info)
+
 
 tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Question4"])
 with tabq1:
+  question = load_question(conn, course_info, task_info,1)
   txt_soal1 = st.text_area(
     "Question 1",
     question,
@@ -65,7 +66,7 @@ with tabq1:
   )
 
 with tabq2:
-  question2 = "Tidak ada soal."
+  question = load_question(conn, course_info, task_info,2) 
   txt_soal2 = st.text_area(
     "Question 2",
     question,
@@ -73,7 +74,7 @@ with tabq2:
   )
 
 with tabq3:
-  question3 = "Tidak ada soal."
+  question = load_question(conn, course_info, task_info,3)
   txt_soal3 = st.text_area(
     "Question 3",
     question,
@@ -81,6 +82,7 @@ with tabq3:
   )
 
 with tabq4:
+  question = load_question(conn, course_info, task_info,4)
   txt_soal4 = st.text_area(
     "Question 4",
     question,
