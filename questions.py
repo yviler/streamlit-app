@@ -6,5 +6,5 @@ def load_question(conn, course_name, task_info, question_number):
   result = cursor.fetchone()
   
   if result is None:
-    result ='Tidak ada pertanyaan.'
+    result[0] ='Tidak ada pertanyaan.'
   return result[0]
