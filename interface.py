@@ -88,7 +88,7 @@ with tabq4:
     disabled=True
   )
 
-txt_soal1 = st.text_area("Question", question, disabled=True)
+#txt_soal1 = st.text_area("Question", question, disabled=True)
 
 txt_jawaban_student = st.text_area("Answer", height=400)
 
