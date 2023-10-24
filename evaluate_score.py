@@ -8,4 +8,4 @@ def evaluate_score(txt_jawaban_student, course_info, task_info, soal):
   #st.write("\nPredicted Score:", student_score)
   #with st.sidebar:
       #st.text_input('Nilai', value=student_score, max_chars=10, disabled=True, label_visibility="visible")
-return student_score
+  return student_score
