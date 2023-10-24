@@ -1,3 +1,4 @@
+from modeling import scoring 
 
 def evaluate_score(txt_jawaban_student, course_info, task_info, soal):
   student_score = 0  # Implement your scoring logic here
