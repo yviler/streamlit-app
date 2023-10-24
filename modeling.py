@@ -31,6 +31,8 @@ import pandas as pd
 from keras.models import load_model
 from model import model_load
 
+import sqlite3
+conn = sqlite3.connect('database_aes.db')
 
 def test_prediction(fileAddress, modelAddress, set, lang):
 
