@@ -86,8 +86,9 @@ def test_prediction(fileAddress, modelAddress, set, lang):
 #if __name__ == '__main__':
 
 def scoring(conn, jawaban_student, selected_course, selected_task, selected_problem, language):
-  model_address = model_load(conn, selected_course, selected_task, selected_problem)
-  print('ADDRESS:', model_address)
+  model_use = model_load(conn, selected_course, selected_task, selected_problem)
+  model_address = 'https://github.com/williamhilmysusatyo/streamlit-app/tree/main/test_answer.csv'+model_use[0]
+    
   warnings.filterwarnings('ignore')
   set_count = 1
   all_sets_score = []
@@ -106,9 +107,9 @@ def scoring(conn, jawaban_student, selected_course, selected_task, selected_prob
 
   # displaying the DataFrame
 
-  df.to_csv('test_answer.csv', sep="\t")
+  df.to_csv('https://github.com/williamhilmysusatyo/streamlit-app/tree/main/test_answer.csv', sep="\t")
   #modelAddress='/content/gdrive/MyDrive/Asset/aesindo-bert-bilstm1_1.h5'
-  test_address='test_answer.csv'
+  test_address='https://github.com/williamhilmysusatyo/streamlit-app/tree/main/test_answer.csv'
 
   predscore = test_prediction(test_address,model_address, 1, language)
   #st.write("\nJawaban Mahasiswa:", jawaban_student)
@@ -120,5 +121,5 @@ def scoring(conn, jawaban_student, selected_course, selected_task, selected_prob
           'score': [predscore]
           }
   df2 = pd.DataFrame(sample2)
-  df2.to_csv('prediction_score.csv', sep="\t")
+  df2.to_csv('https://github.com/williamhilmysusatyo/streamlit-app/tree/main/prediction_score.csv', sep="\t")
   return predscore
