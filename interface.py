@@ -73,7 +73,7 @@ with tabq2:
   )
 
 with tabq3:
-  soal3 = "Tidak ada soal."
+  question3 = "Tidak ada soal."
   txt_soal3 = st.text_area(
     "Question 3",
     question3,
