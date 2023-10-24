@@ -32,7 +32,6 @@ from keras.models import load_model
 from model import model_load
 
 import sqlite3
-conn = sqlite3.connect('database_aes.db')
 
 def test_prediction(fileAddress, modelAddress, set, lang):
 
@@ -85,7 +84,9 @@ def test_prediction(fileAddress, modelAddress, set, lang):
 
 #execute program
 #if __name__ == '__main__':
+
 def scoring(jawaban_student, selected_course, selected_task, selected_problem, language):
+  conn = sqlite3.connect('database_aes.db')
   model_address = model_load(conn, selected_course, selected_task, selected_problem)
 
   warnings.filterwarnings('ignore')
