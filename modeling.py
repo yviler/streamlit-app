@@ -87,7 +87,7 @@ def test_prediction(fileAddress, modelAddress, set, lang):
 
 def scoring(conn, jawaban_student, selected_course, selected_task, selected_problem, language):
   model_address = model_load(conn, selected_course, selected_task, selected_problem)
-
+  print('ADDRESS:', model_address)
   warnings.filterwarnings('ignore')
   set_count = 1
   all_sets_score = []
