@@ -106,9 +106,9 @@ def scoring(conn, jawaban_student, selected_course, selected_task, selected_prob
 
   # displaying the DataFrame
 
-  df.to_csv('/content/gdrive/MyDrive/Asset/test_bhsindo.tsv', sep="\t")
+  df.to_csv('test_answer.csv', sep="\t")
   #modelAddress='/content/gdrive/MyDrive/Asset/aesindo-bert-bilstm1_1.h5'
-  test_address='/content/gdrive/MyDrive/Asset/test_bhsindo.tsv'
+  test_address='test_answer.csv'
 
   predscore = test_prediction(test_address,model_address, 1, language)
   #st.write("\nJawaban Mahasiswa:", jawaban_student)
@@ -120,5 +120,5 @@ def scoring(conn, jawaban_student, selected_course, selected_task, selected_prob
           'score': [predscore]
           }
   df2 = pd.DataFrame(sample2)
-  df2.to_csv('/content/gdrive/MyDrive/Asset/prediction_score.csv', sep="\t")
+  df2.to_csv('prediction_score.csv', sep="\t")
   return predscore
