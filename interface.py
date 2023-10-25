@@ -109,6 +109,7 @@ with col3:
 
 if btn_evaluate:
     question = txt_soal
+    st.write("Pertanyaan: ", question)
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, question))
 
 if btn_save:
