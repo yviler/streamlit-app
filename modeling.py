@@ -122,4 +122,5 @@ def scoring(conn, jawaban_student, selected_course, selected_task, selected_prob
           }
   df2 = pd.DataFrame(sample2)
   df2.to_csv('prediction_score.csv', sep="\t")
+  print('Skor sudah tersimpan ke dalam bentuk csv')
   return predscore
