@@ -17,12 +17,6 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
   table = cursor.fetchall()
   course_id = []
   
-  st.write("\nJawaban:", txt_jawaban_student)
-  st.write("\nNilai:", score)
-  st.write("\nMatkul:","course_info)
-  st.write("\nIdentitas:",add_identity)
-  st.write("\nTugas:", task_info)
-  
   st.write("=======1========")
   
   for row in table:
