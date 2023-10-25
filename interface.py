@@ -55,9 +55,6 @@ with st.sidebar:
     task_info = st.radio(
         "Choose Tutorial Task", load_tasks(conn, course_info)
     )
-    
-
-#tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Question4"])
 
 question_info = st.radio("Question Number", ['1','2','3','4'],horizontal=True)
 question = load_question(conn, course_info, task_info,question_info)
@@ -67,7 +64,7 @@ txt_soal = st.text_area(
     disabled=True
   )
   
-    
+#tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Question4"])    
 #with tabq2:
 #  question = load_question(conn, course_info, task_info,2) 
 #  txt_soal = st.text_area(
@@ -90,15 +87,9 @@ with col1:
 with col2:
     btn_save = st.button('Save')
 
-with col3:
-    btn_close = st.button('Close')
-
 if btn_evaluate:
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
 
 if btn_save:
     score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
     save_score(conn, score, course_info, add_identity, task_info)
-
-if btn_close:
-    conn.close()
