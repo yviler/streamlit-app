@@ -17,12 +17,13 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
   table = cursor.fetchall()
   course_id = []
   
-  st.write(course_id)
+  
   
   for row in table:
-    st.write("=======2========")
     course_id.append(row[0])
-  st.write("=======3========")
+    
+  st.write(course_id)
+  st.write("=======1========")
   
   cursor.execute('SELECT studentID FROM aes_student WHERE studentName = ?', (add_identity, ))
   student_id = cursor.fetchone()
