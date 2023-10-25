@@ -115,7 +115,7 @@ if btn_evaluate:
 
 if btn_save:
     score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
-    save_score(conn, score, course_info)
+    save_score(conn, score, course_info, add_identity)
 
 if btn_close:
     conn.close()
