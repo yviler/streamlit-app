@@ -59,7 +59,7 @@ with st.sidebar:
 question_info = st.radio("Question Number", ['1','2','3','4'],horizontal=True)
 question = load_question(conn, course_info, task_info,question_info)
 txt_soal = st.text_area(
-    "Question 1",
+    "Question:",
     question,
     disabled=True
   )
