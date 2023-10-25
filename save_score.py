@@ -10,8 +10,15 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
   cursor.execute('SELECT * FROM aes_course WHERE courseName = ?', (course_info, ))
   table = cursor.fetchall()
   course_id = []
-  st.write("Parameter:", txt_jawaban_student, score, course_info, add_identity, task_info)
+  
+  st.write("\nJawaban:", txt_jawaban_student)
+  st.write("\nNilai:", score)
+  st.write("\nMatkul:","course_info)
+  st.write("\nIdentitas:",add_identity)
+  st.write("\nTugas:", task_info)
+  
   st.write("=======1========")
+  
   for row in table:
     st.write("=======2========")
     course_id.append(row[0])
