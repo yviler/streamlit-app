@@ -3,7 +3,7 @@ import streamlit as st
 
 def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task_info):
   st.write("\nJawaban:", txt_jawaban_student)
-  st.write("\nNilai:", score)
+
   st.write("\nMatkul:",course_info)
   st.write("\nIdentitas:",add_identity)
   st.write("\nTugas:", task_info)
@@ -17,7 +17,7 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
   table = cursor.fetchall()
   course_id = []
   
-  st.write("=======1========")
+  st.write(course_id)
   
   for row in table:
     st.write("=======2========")
@@ -27,9 +27,11 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
   cursor.execute('SELECT studentID FROM aes_student WHERE studentName = ?', (add_identity, ))
   student_id = cursor.fetchone()
   task_info = "Task " + str(task_info)
+ 
   cursor.execute('SELECT assignmentID FROM aes_assignment WHERE courseID = ? AND assignmentType = ?', (course_id[0], task_info))
   assignment_id = cursor.fetchone()
 
+  st.write("=======4========")
   cursor.execute('SELECT answerTake FROM aes_student_answer_score WHERE studentName = ? AND courseID = ?', (add_identity, course_id[0]))
   result = cursor.fetchone()
 
