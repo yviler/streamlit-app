@@ -112,7 +112,8 @@ if btn_evaluate:
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
 
 if btn_save:
-    save_score(conn)
+    score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
+    save_score(conn, score, course_info)
 
 if btn_close:
     conn.close()
