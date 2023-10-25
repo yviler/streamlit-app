@@ -9,6 +9,7 @@ from evaluate_score import evaluate_score
 from PIL import Image
 import streamlit as st
 import sqlite3 
+import pandas as pd
 
 st.set_page_config(page_title="Page Title", layout="wide")
 
