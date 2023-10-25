@@ -11,6 +11,7 @@ import streamlit as st
 import sqlite3 
 import pandas as pd
 
+nomor_soal = 0
 st.set_page_config(page_title="Page Title", layout="wide")
 
 st.markdown("""
@@ -66,15 +67,17 @@ with tabq1:
     question,
     disabled=True
   )
-
+  nomor_soal = 1
+    
 with tabq2:
   question = load_question(conn, course_info, task_info,2) 
   txt_soal = st.text_area(
     "Question 2",
     question,
     disabled=True
-  )
-
+  ) 
+  nomor_soal = 2
+    
 with tabq3:
   question = load_question(conn, course_info, task_info,3)
   txt_soal = st.text_area(
@@ -82,7 +85,8 @@ with tabq3:
     question,
     disabled=True
   )
-
+  nomor_soal = 3
+    
 with tabq4:
   question = load_question(conn, course_info, task_info,4)
   txt_soal = st.text_area(
@@ -90,7 +94,8 @@ with tabq4:
     question,
     disabled=True
   )
-
+  nomor_soal = 4
+    
 #txt_soal1 = st.text_area("Question", question, disabled=True)
 
 txt_jawaban_student = st.text_area("Answer", "Tidak Menjawab", height=400)
@@ -109,6 +114,7 @@ with col3:
     btn_close = st.button('Close')
 
 if btn_evaluate:
+    st.write ("Nomor Soal:", nomor_soal)
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
 
 if btn_save:
