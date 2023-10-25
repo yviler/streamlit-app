@@ -30,12 +30,6 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'''
 
   if result is not None:
-    st.write(add_identity)
-    st.write(assignment_id[0])
-    st.write(course_id[0])
-    st.write(student_id[0])
-    st.write(id)
-    st.write(result[0])
     cursor.execute(insert_query, (id, student_id[0], add_identity, course_id[0], assignment_id[0], txt_jawaban_student, student_score, result[0] + 1, 'Ok', 1, 'Ok'))
 
   else:
