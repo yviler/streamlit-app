@@ -55,8 +55,7 @@ with st.sidebar:
     task_info = st.radio(
         "Choose Tutorial Task", load_tasks(conn, course_info)
     )
-
-
+    question_info = st.text("Question Number, nomor_soal, disabled=True)
 
 tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Question4"])
 
