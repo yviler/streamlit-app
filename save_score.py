@@ -2,6 +2,12 @@ import pandas as pd
 import streamlit as st
 
 def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task_info):
+  st.write("\nJawaban:", txt_jawaban_student)
+  st.write("\nNilai:", score)
+  st.write("\nMatkul:","course_info)
+  st.write("\nIdentitas:",add_identity)
+  st.write("\nTugas:", task_info)
+  
   prediction_score = pd.read_csv('prediction_score.csv', sep="\t", encoding="ISO-8859-1")
   string_student_score = prediction_score['score']
   student_score = score
