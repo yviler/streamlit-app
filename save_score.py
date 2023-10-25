@@ -1,3 +1,4 @@
+import pandas as pd 
 
 def save_score():
   prediction_score = pd.read_csv('prediction_score.csv', sep="\t", encoding="ISO-8859-1")
