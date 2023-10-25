@@ -5,7 +5,6 @@ nltk
 gensim
 scikit-learn
 torch
-matplotlib
 transformers
 keras
 tensorflow 
