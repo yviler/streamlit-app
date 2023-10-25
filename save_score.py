@@ -12,12 +12,11 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
   string_student_score = prediction_score['score']
   student_score = score
   cursor = conn.cursor()
-  course_info = course_info[:-1]
-  cursor.execute('SELECT * FROM aes_course WHERE courseName = ?', (course_info, ))
+  #course_info = course_info[:-1]
+  course_info = "%"+course_info+"%"
+  cursor.execute('SELECT * FROM aes_course WHERE courseName LIKE ?', (course_info, ))
   table = cursor.fetchall()
   course_id = []
-  
-  
   
   for row in table:
     course_id.append(row[0])
