@@ -8,6 +8,6 @@ def model_load(conn, course_name, task_info, problem):
   result = cursor.fetchone()
  
   if result is None:
-    result =('aesindo-bert-bilstm1_1.h5.',)
+    result =('aesindo-bert-bilstm1_1.h5',)
     
   return result[0]
