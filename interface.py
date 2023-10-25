@@ -55,12 +55,13 @@ with st.sidebar:
     task_info = st.radio(
         "Choose Tutorial Task", load_tasks(conn, course_info)
     )
-    question_info = st.text("Question Number, nomor_soal, disabled=True)
+    
 
 tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Question4"])
 
 with tabq1:
   question = load_question(conn, course_info, task_info,1)
+  question_info = st.text("Question Number", "1", disabled=True)
   txt_soal = st.text_area(
     "Question 1",
     question,
@@ -70,14 +71,17 @@ with tabq1:
     
 with tabq2:
   question = load_question(conn, course_info, task_info,2) 
+  question_info = st.text("Question Number", "2", disabled=True)
   txt_soal = st.text_area(
     "Question 2",
     question,
     disabled=True
   ) 
+  question_info = st.text("Question Number", "1", disabled=True)  
     
 with tabq3:
   question = load_question(conn, course_info, task_info,3)
+  question_info = st.text("Question Number", "3", disabled=True)
   txt_soal = st.text_area(
     "Question 3",
     question,
@@ -86,6 +90,7 @@ with tabq3:
     
 with tabq4:
   question = load_question(conn, course_info, task_info,4)
+  question_info = st.text("Question Number", "4", disabled=True)
   txt_soal = st.text_area(
     "Question 4",
     question,
@@ -110,6 +115,7 @@ with col3:
     btn_close = st.button('Close')
 
 if btn_evaluate:
+    st.write("Nomor Soal:", question_info)
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
 
 if btn_save:
