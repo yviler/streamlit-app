@@ -112,7 +112,7 @@ if btn_evaluate:
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, question))
 
 if btn_save:
-    save_score()
+    save_score(conn)
 
 if btn_close:
     conn.close()
