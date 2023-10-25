@@ -5,6 +5,7 @@ def save_score(conn, score, course_info, add_identity):
   string_student_score = prediction_score['score']
   student_score = score
   cursor = conn.cursor()
+  course_info = course_info[:-1]
   cursor.execute('SELECT * FROM aes_course WHERE courseName = ?', (course_info, ))
   table = cursor.fetchall()
   course_id = []
