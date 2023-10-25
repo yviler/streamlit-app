@@ -87,9 +87,22 @@ with col1:
 with col2:
     btn_save = st.button('Save')
 
+with col3:
+    btn_insert = st.button('Insert')
+
 if btn_evaluate:
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
 
 if btn_save:
     score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
     save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
+
+if btn_insert:
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')')
+    conn.commit()
+    #close connection
+    cursor.close()
+    conn.close()
+    st.write('Proses berhasil')
+    
