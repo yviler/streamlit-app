@@ -58,6 +58,7 @@ with st.sidebar:
 
 
 tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Question4"])
+
 with tabq1:
   question = load_question(conn, course_info, task_info,1)
   txt_soal = st.text_area(
@@ -92,7 +93,7 @@ with tabq4:
 
 #txt_soal1 = st.text_area("Question", question, disabled=True)
 
-txt_jawaban_student = st.text_area("Answer", height=400)
+txt_jawaban_student = st.text_area("Answer", "Tidak Menjawab" height=400)
 
 st.write(f'You wrote {len(txt_jawaban_student)} characters.')
 
@@ -108,8 +109,7 @@ with col3:
     btn_close = st.button('Close')
 
 if btn_evaluate:
-    st.write("Pertanyaan: ", txt_soal)
-    st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, question))
+    st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
 
 if btn_save:
     save_score(conn)
