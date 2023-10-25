@@ -67,7 +67,7 @@ with tabq1:
     question,
     disabled=True
   )
-  nomor_soal = 1
+  
     
 with tabq2:
   question = load_question(conn, course_info, task_info,2) 
@@ -76,7 +76,6 @@ with tabq2:
     question,
     disabled=True
   ) 
-  nomor_soal = 2
     
 with tabq3:
   question = load_question(conn, course_info, task_info,3)
@@ -85,7 +84,6 @@ with tabq3:
     question,
     disabled=True
   )
-  nomor_soal = 3
     
 with tabq4:
   question = load_question(conn, course_info, task_info,4)
@@ -94,7 +92,6 @@ with tabq4:
     question,
     disabled=True
   )
-  nomor_soal = 4
     
 #txt_soal1 = st.text_area("Question", question, disabled=True)
 
@@ -114,7 +111,6 @@ with col3:
     btn_close = st.button('Close')
 
 if btn_evaluate:
-    st.write ("Nomor Soal:", nomor_soal)
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
 
 if btn_save:
