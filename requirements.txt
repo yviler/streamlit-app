@@ -9,3 +9,4 @@ matplotlib
 transformers
 keras
 tensorflow 
+streamlit-login-auth-ui
