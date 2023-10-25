@@ -99,7 +99,7 @@ if btn_save:
 
 if btn_insert:
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')')
+    cursor.execute("INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')")
     conn.commit()
     #close connection
     cursor.close()
