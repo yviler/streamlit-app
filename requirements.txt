@@ -10,4 +10,4 @@ transformers
 keras
 tensorflow 
 streamlit-login-auth-ui
-argon2
+argon2-cffi
