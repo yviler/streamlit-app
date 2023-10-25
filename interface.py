@@ -92,4 +92,5 @@ if btn_evaluate:
 
 if btn_save:
     score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
+    st.write("0000000000000B")
     save_score(conn, txt_jawaban_student, score, course_info, add_identity, task_info)
