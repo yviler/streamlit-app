@@ -108,7 +108,7 @@ with col3:
     btn_close = st.button('Close')
 
 if btn_evaluate:
-    st.write('Pertanyaan:', question)
+    question = txt_soal
     st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, question))
 
 if btn_save:
