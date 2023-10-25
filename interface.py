@@ -61,7 +61,8 @@ tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Que
 
 with tabq1:
   question = load_question(conn, course_info, task_info,1)
-  question_info = st.text("Question Number", "1", disabled=True)
+  nomor_soal = 1
+  question_info = st.text("Question Number", nomor_soal, disabled=True)
   txt_soal = st.text_area(
     "Question 1",
     question,
@@ -71,17 +72,18 @@ with tabq1:
     
 with tabq2:
   question = load_question(conn, course_info, task_info,2) 
-  question_info = st.text("Question Number", "2", disabled=True)
+  nomor_soal = 2
+  question_info = st.text("Question Number", nomor_soal, disabled=True)
   txt_soal = st.text_area(
     "Question 2",
     question,
     disabled=True
   ) 
-  question_info = st.text("Question Number", "1", disabled=True)  
     
 with tabq3:
   question = load_question(conn, course_info, task_info,3)
-  question_info = st.text("Question Number", "3", disabled=True)
+  nomor_soal = 3
+  question_info = st.text("Question Number", nomor_soal, disabled=True)
   txt_soal = st.text_area(
     "Question 3",
     question,
@@ -90,7 +92,8 @@ with tabq3:
     
 with tabq4:
   question = load_question(conn, course_info, task_info,4)
-  question_info = st.text("Question Number", "4", disabled=True)
+  nomor_soal = 4
+  question_info = st.text("Question Number", nomor_soal, disabled=True)
   txt_soal = st.text_area(
     "Question 4",
     question,
