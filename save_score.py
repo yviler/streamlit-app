@@ -1,6 +1,6 @@
 import pandas as pd 
 
-def save_score(conn, score, course_info):
+def save_score(conn, score, course_info, add_identity):
   prediction_score = pd.read_csv('prediction_score.csv', sep="\t", encoding="ISO-8859-1")
   string_student_score = prediction_score['score']
   student_score = score
