@@ -74,7 +74,7 @@ def test_prediction(fileAddress, modelAddress, set, lang):
 
     #lstm_model = get_model(bidirectional=True)
     #modelAddress="aes_model_"+nama_model+set_problem+".h5"
-    st.write("ADDRESS:",modelAddress)
+    #st.write("ADDRESS:",modelAddress)
     
     bilstm_model = load_model(modelAddress)
     bilstm_model.load_weights(modelAddress)
