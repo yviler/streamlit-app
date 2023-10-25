@@ -1,6 +1,6 @@
 
 def save_score():
-  prediction_score = pd.read_csv('/content/gdrive/MyDrive/Asset/prediction_score.csv', sep="\t", encoding="ISO-8859-1")
+  prediction_score = pd.read_csv('prediction_score.csv', sep="\t", encoding="ISO-8859-1")
   string_student_score = prediction_score['score']
   student_score = int(string_student_score)
 
@@ -33,6 +33,8 @@ def save_score():
     cursor.execute(insert_query, (id, student_id[0], add_identity, course_id[0], assignment_id[0], txt_jawaban_student, student_score, 1, 'Ok', 1, 'Ok'))
 
   conn.commit()
-  st.write ('Data saved, please close the connection...')
+  #close connection
   cursor.close()
   conn.close()
+  
+  st.write ('Score Data saved.')
