@@ -2,11 +2,13 @@ import pandas as pd
 import streamlit as st
 import sqlite3
 
-def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task_info):
+def save_score(txt_jawaban_student, score, course_info, add_identity, task_info):
 
   prediction_score = pd.read_csv('prediction_score.csv', sep="\t", encoding="ISO-8859-1")
   string_student_score = prediction_score['score']
   student_score = score
+  
+  conn = sqlite3.connect('database_aes.db')
   cursor = conn.cursor()
   #course_info = course_info[:-1]
   course_info = "%"+course_info+"%"
@@ -46,6 +48,7 @@ def save_score(conn, txt_jawaban_student, score, course_info, add_identity, task
     cursor.execute(insert_query, (id, student_id[0], add_identity, course_id[0], assignment_id[0], txt_jawaban_student, student_score, 1, 'Ok', 1, 'Ok'))
 
   conn.commit()
+  
   #close connection
   cursor.close()
   conn.close()
