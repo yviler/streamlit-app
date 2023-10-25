@@ -26,7 +26,7 @@ def save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
   student_id = cursor.fetchone()
   task_info = "Task " + str(task_info)
   st.write ("Task Info:", task_info)
-  st.write ("Course ID:", course_id[0])
+  st.write ("Course ID:", course_id)
   
   cursor.execute('SELECT assignmentID FROM aes_assignment WHERE courseID = ? AND assignmentType = ?', (course_id[0], task_info))
   assignment_id = cursor.fetchone()
