@@ -7,7 +7,7 @@ def upload_pdf(file_name):
     # Proses file PDF dengan Fitz (PyMuPDF)
     st.write(file_name)
     with open(file_name.name , "rb") as pdf_file:
-      pdf_reader = PyPDF2.PdfFileReader(pdf_file)
+      pdf_reader = PyPDF2.PdfReader(pdf_file)
       text = ""
       for page_num in range(pdf_reader.getNumPages()):
           page = pdf_reader.getPage(page_num)
