@@ -12,3 +12,4 @@ tensorflow
 streamlit-login-auth-ui
 argon2-cffi
 PyMuPDF
+PyPDF2
