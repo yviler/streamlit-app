@@ -117,7 +117,7 @@ if LOGGED_IN == True:
     
     uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
     st.write('Sedang dalam proses mengunggah')
-    text = upload_pdf(uploaded_file)
+    text = upload_pdf(uploaded_file.name)
     st.write(text)
     st.write('File PDF berhasil terunggah')
     answer.append(text)
