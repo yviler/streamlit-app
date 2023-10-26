@@ -11,6 +11,7 @@ import streamlit as st
 import sqlite3 
 import pandas as pd
 from streamlit_login_auth_ui.widgets import __login__
+import sys, fitz
 
 nomor_soal = 0
 st.set_page_config(page_title="Page Title", layout="wide")
@@ -96,6 +97,9 @@ if LOGGED_IN == True:
     
     with col2:
         btn_save = st.button('Save')
+
+    with col3:
+        btn_upload = st.button('Upload PDF')
     
     #with col3:
     #    btn_insert = st.button('Insert')
@@ -106,12 +110,37 @@ if LOGGED_IN == True:
     if btn_save:
         score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
         save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
+        
+    if btn_upload:
+        st.write("Upload answer via file:")
+        uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
+        if uploaded_file.type == "application/pdf":
+            # Proses file PDF dengan Fitz (PyMuPDF)
+            doc = fitz.open(uploaded_file)
+            text = ''
+            for page in doc:
+                page_text = page.get_text()
+                text += page_text	
+        else:
+            st.text("Unsupported file format. Please upload a PDF, PNG, or JPG file.")
+        else:
+            doc = fitz.open(uploaded_file)
+                text = ''
+                for page in doc:
+                            page_text = page.get_text()
+                            text += page_text
+                pymupdf_test = text
+
+
+        #show output
+        answers = []
+        answers.append(st.text_area(f'Write answer question {i}', value=str(pymupdf_test) ,height= 300))
     
-    #if btn_insert:
-    #  cursor = conn.cursor()
-    #  cursor.execute("INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')")
-    #  conn.commit()
-    #  cursor.close()
-    #  conn.close()
-    #st.write('Proses berhasil')
+#if btn_insert:
+#  cursor = conn.cursor()
+#  cursor.execute("INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')")
+#  conn.commit()
+#  cursor.close()
+#  conn.close()
+#st.write('Proses berhasil')
         
