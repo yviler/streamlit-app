@@ -5,7 +5,9 @@ def upload_pdf(file_name):
   if file_name.type == "application/pdf":
     # Proses file PDF dengan Fitz (PyMuPDF)
     st.write(file_name)
-    text = file_name.read()
+    words = file_name.read()
+    text = words.decode('utf-8')
+
     #doc = fitz.open(file_name.name)
     #text = ''
     #for page in doc:
