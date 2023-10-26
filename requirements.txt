@@ -11,6 +11,4 @@ keras
 tensorflow 
 streamlit-login-auth-ui
 argon2-cffi
-fitz
-frontend
 PyMuPDF
