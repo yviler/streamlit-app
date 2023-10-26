@@ -114,6 +114,7 @@ if LOGGED_IN == True:
 
     if btn_upload:
         answer = []
+        st.write('Check 10000')
         uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
         st.write('Sedang dalam proses mengunggah')
         isi_file = upload_pdf(uploaded_file)
