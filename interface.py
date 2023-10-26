@@ -123,19 +123,19 @@ if LOGGED_IN == True:
                 text += page_text	
         else:
             st.text("Unsupported file format. Please upload a PDF, PNG, or JPG file.")
-        else:
-            doc = fitz.open(uploaded_file)
-                text = ''
-                for page in doc:
-                            page_text = page.get_text()
-                            text += page_text
-                pymupdf_test = text
+    else:
+        doc = fitz.open(uploaded_file)
+            text = ''
+            for page in doc:
+                        page_text = page.get_text()
+                        text += page_text
+            pymupdf_test = text
 
 
-        #show output
-        answers = []
-        answers.append(st.text_area(f'Write answer question {i}', value=str(pymupdf_test) ,height= 300))
-    
+    #show output
+    answers = []
+    answers.append(st.text_area(f'Write answer question {i}', value=str(pymupdf_test) ,height= 300))
+
 #if btn_insert:
 #  cursor = conn.cursor()
 #  cursor.execute("INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')")
