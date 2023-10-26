@@ -114,7 +114,8 @@ if LOGGED_IN == True:
         
     if btn_upload:
         uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
-        upload_pdf(uploaded_file)
+        text = upload_pdf(uploaded_file)
+        st.write(text)
         st.write('File PDF berhasil terunggah')
 
 
