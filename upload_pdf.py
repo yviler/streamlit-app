@@ -12,7 +12,7 @@ def upload_pdf(uploaded_file):
         st.text("Unsupported file format. Please upload a PDF, PNG, or JPG file.")
   # else:
   # doc = fitz.open(uploaded_file)
-  #       text = ''
+  #       text = 'init'
   #       for page in doc:
   #                   page_text = page.get_text()
   #                   text += page_text
