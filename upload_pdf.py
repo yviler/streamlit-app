@@ -1,11 +1,11 @@
 import streamlit as st
 import fitz 
 
-def upload_pdf(uploaded_file):
-  if uploaded_file.type == "application/pdf":
+def upload_pdf(file_name):
+  if file_name.type == "application/pdf":
     # Proses file PDF dengan Fitz (PyMuPDF)
-    st.write(uploaded_file)
-    doc = fitz.open(uploaded_file)
+    st.write(file_name.name)
+    doc = fitz.open(file_name.name)
     text = ''
     for page in doc:
         page_text = page.get_text()
