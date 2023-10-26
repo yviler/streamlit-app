@@ -125,11 +125,11 @@ if LOGGED_IN == True:
             st.text("Unsupported file format. Please upload a PDF, PNG, or JPG file.")
     else:
         doc = fitz.open(uploaded_file)
-            text = ''
-            for page in doc:
-                        page_text = page.get_text()
-                        text += page_text
-            pymupdf_test = text
+        text = ''
+        for page in doc:
+                    page_text = page.get_text()
+                    text += page_text
+        pymupdf_test = text
 
 
     #show output
