@@ -112,22 +112,14 @@ if LOGGED_IN == True:
         score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
         save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
         
-    answer = []
+    answer, text = [], []
     
     if btn_upload:
+        global answer
+        global text
         uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
         st.write('Sedang dalam proses mengunggah')
-        if uploaded_file.type == "application/pdf":
-            # Proses file PDF dengan Fitz (PyMuPDF)
-            doc = fitz.open(uploaded_file)
-            text = ''
-            for page in doc:
-                page_text = page.get_text()
-                text += page_text	
-        else:
-            st.write("Unsupported file format. Please upload a PDF, PNG, or JPG file.")
-            text = 'Salah Input'
-            
+        text = upload_pdf(uploaded_file)
         st.write(text)
         st.write('File PDF berhasil terunggah')
         answer.append(text)
