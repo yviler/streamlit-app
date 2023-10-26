@@ -10,7 +10,7 @@ def upload_pdf(file_name):
       pdf_reader = PyPDF2.PdfReader(pdf_file)
       text = ""
       for page_num in range(len(pdf_reader.pages)):
-          page = pdf_reader.getPage(page_num)
+          page = pdf_reader.pages[page_num]
           text += page.extractText()
     #words = file_name.read()
     #text = words.decode('iso-8859-1')
