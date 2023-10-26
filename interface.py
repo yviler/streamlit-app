@@ -111,21 +111,15 @@ if LOGGED_IN == True:
     if btn_save:
         score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
         save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
-        
-    answer = []
-    
-    
-    uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
-    st.write('Sedang dalam proses mengunggah')
-    text = upload_pdf(uploaded_file.name)
-    st.write(text)
-    st.write('File PDF berhasil terunggah')
-    answer.append(text)
 
-
-    #show output
-    st.write(text)
-    st.write(answer)
+    if btn_upload:
+        answer = []
+        uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
+        st.write('Sedang dalam proses mengunggah')
+        isi_file = upload_pdf(uploaded_file)
+        st.write(isi_file)
+        st.write('File PDF berhasil terunggah')
+        answers.append(st.text_area('Write answer question ', isi_file ,height= 300))
 
 #if btn_insert:
 #  cursor = conn.cursor()
