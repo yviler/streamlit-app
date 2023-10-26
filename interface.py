@@ -13,6 +13,7 @@ import pandas as pd
 from streamlit_login_auth_ui.widgets import __login__
 from upload_pdf import upload_pdf
 import fitz
+import PyPDF2
 
 nomor_soal = 0
 st.set_page_config(page_title="Page Title", layout="wide")
