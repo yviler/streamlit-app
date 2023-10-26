@@ -1,7 +1,6 @@
 import streamlit as st
 
-def upload_pdf():
-  uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
+def upload_pdf(uploaded_file):
   if uploaded_file.type == "application/pdf":
     # Proses file PDF dengan Fitz (PyMuPDF)
     doc = fitz.open(uploaded_file)
