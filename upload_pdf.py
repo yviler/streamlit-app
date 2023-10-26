@@ -1,3 +1,4 @@
+import stramlit as st
 
 def upload_pdf():
   uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
