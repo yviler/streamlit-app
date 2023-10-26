@@ -117,8 +117,8 @@ if LOGGED_IN == True:
         answer = []
         st.write('Check 10000')
         st.write('Sedang dalam proses mengunggah')
-        #st.write(uploaded_file)
-        isi_file = upload_pdf(uploaded_file)
+        st.write(uploaded_file)
+        isi_file = upload_pdf(uploaded_file.name)
         st.write(isi_file)
         st.write('File PDF berhasil terunggah')
         #answers.append(st.text_area('Write answer question ', isi_file ,height= 300))
