@@ -114,14 +114,13 @@ if LOGGED_IN == True:
         
     answer = []
     
-    if btn_upload:
-        global text
-        uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
-        st.write('Sedang dalam proses mengunggah')
-        text = upload_pdf(uploaded_file)
-        st.write(text)
-        st.write('File PDF berhasil terunggah')
-        answer.append(text)
+    
+    uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
+    st.write('Sedang dalam proses mengunggah')
+    text = upload_pdf(uploaded_file)
+    st.write(text)
+    st.write('File PDF berhasil terunggah')
+    answer.append(text)
 
 
     #show output
