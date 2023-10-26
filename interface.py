@@ -117,8 +117,8 @@ if LOGGED_IN == True:
 
 
     #show output
-    answers = []
-    answers.append(st.text_area(f'Write answer question {i}', value=str(pymupdf_test) ,height= 300))
+    #answers = []
+    #answers.append(st.text_area(f'Write answer question {i}', value=str(pymupdf_test) ,height= 300))
 
 #if btn_insert:
 #  cursor = conn.cursor()
