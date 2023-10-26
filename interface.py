@@ -112,10 +112,9 @@ if LOGGED_IN == True:
         score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
         save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
         
-    answer, text = [], []
+    answer = []
     
     if btn_upload:
-        global answer
         global text
         uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
         st.write('Sedang dalam proses mengunggah')
@@ -126,6 +125,7 @@ if LOGGED_IN == True:
 
 
     #show output
+    st.write(text)
     st.write(answer)
 
 #if btn_insert:
