@@ -11,7 +11,7 @@ def upload_pdf(file_name):
       text = ""
       for page_num in range(len(pdf_reader.pages)):
           page = pdf_reader.pages[page_num]
-          text += page.extractText()
+          text += page.extract_text()
     #words = file_name.read()
     #text = words.decode('iso-8859-1')
 
