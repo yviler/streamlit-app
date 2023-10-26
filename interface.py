@@ -12,7 +12,7 @@ import sqlite3
 import pandas as pd
 from streamlit_login_auth_ui.widgets import __login__
 from upload_pdf import upload_pdf
-import sys, fitz
+import sys, fitz, os
 
 nomor_soal = 0
 st.set_page_config(page_title="Page Title", layout="wide")
