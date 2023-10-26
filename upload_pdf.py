@@ -9,7 +9,8 @@ def upload_pdf(uploaded_file):
         page_text = page.get_text()
         text += page_text	
   else:
-        st.text("Unsupported file format. Please upload a PDF, PNG, or JPG file.")
+        st.write("Unsupported file format. Please upload a PDF, PNG, or JPG file.")
+        text = 'Salah Input'
   # else:
   # doc = fitz.open(uploaded_file)
   #       text = 'init'
