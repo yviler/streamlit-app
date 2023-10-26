@@ -11,6 +11,7 @@ import streamlit as st
 import sqlite3 
 import pandas as pd
 from streamlit_login_auth_ui.widgets import __login__
+from upload_pdf import upload_pdf
 import sys, fitz
 
 nomor_soal = 0
