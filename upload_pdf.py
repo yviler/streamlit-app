@@ -1,5 +1,5 @@
 import streamlit as st
-import fitz 
+#import fitz 
 
 def upload_pdf(uploaded_file):
   if uploaded_file.type == "application/pdf":
