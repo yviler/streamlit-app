@@ -6,7 +6,7 @@ def upload_pdf(file_name):
     # Proses file PDF dengan Fitz (PyMuPDF)
     st.write(file_name)
     words = file_name.read()
-    text = words.decode('utf-8')
+    text = words.decode('iso-8859-1')
 
     #doc = fitz.open(file_name.name)
     #text = ''
