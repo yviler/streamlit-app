@@ -119,8 +119,9 @@ if LOGGED_IN == True:
         isi_file = upload_pdf(uploaded_file)
         st.write(isi_file)
         st.write('File PDF berhasil terunggah')
-        answers.append(st.text_area('Write answer question ', isi_file ,height= 300))
-
+        #answers.append(st.text_area('Write answer question ', isi_file ,height= 300))
+        st.text_area('Write answer question ', isi_file ,height= 300)
+        
 #if btn_insert:
 #  cursor = conn.cursor()
 #  cursor.execute("INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')")
