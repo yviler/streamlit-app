@@ -91,7 +91,7 @@ if LOGGED_IN == True:
     text_jawaban = st.empty()
     text_jawaban.text_area ("Answer:", "Tidak Menjawab", height=400)
     
-    st.write(f'You wrote {len(txt_jawaban_student)} characters.')
+    st.write(f'You wrote {len(text_jawaban)} characters.')
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
     
     with col1:
