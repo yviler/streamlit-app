@@ -1,4 +1,4 @@
-iimport streamlit as st
+import streamlit as st
 import fitz
 
 def upload_pdf(file_name):
