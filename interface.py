@@ -107,7 +107,8 @@ if LOGGED_IN == True:
     #    btn_insert = st.button('Insert')
     
     if btn_evaluate:
-        st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
+        score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
+        st.text_input("Prediction Score", score, disabled=True)
     
     if btn_save:
         score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
