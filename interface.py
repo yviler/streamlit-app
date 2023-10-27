@@ -88,7 +88,8 @@ if LOGGED_IN == True:
         
     #txt_soal1 = st.text_area("Question", question, disabled=True)
     
-    txt_jawaban_student = st.text_area("Answer", "Tidak Menjawab", height=400)
+    text_jawaban = st.empty()
+    text_jawaban.text_area ("Answer:", "Tidak Menjawab", height=400)
     
     st.write(f'You wrote {len(txt_jawaban_student)} characters.')
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
@@ -101,7 +102,7 @@ if LOGGED_IN == True:
 
     with col3:
         st.write("Upload answer via file:")
-        btn_upload = st.button('Upload PDF')
+        btn_upload_pdf = st.button('Upload PDF')
     
     #with col3:
     #    btn_insert = st.button('Insert')
@@ -114,17 +115,14 @@ if LOGGED_IN == True:
         score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
         save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
 
-    if btn_upload:
+    if btn_upload_pdf:
+        st.write('Silahkan unggah PDF:')     
         uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
-        #answer = []
-        #st.write('Check 10000')
-        #st.write('Sedang dalam proses mengunggah')
-        #st.write(uploaded_file)
-        #isi_file = upload_pdf(uploaded_file)
-        #st.write(isi_file)
-        #st.write('File PDF berhasil terunggah')
-        #answers.append(st.text_area('Write answer question ', isi_file ,height= 300))
-        #st.text_area('Write answer question ', isi_file ,height= 300)
+        if uploaded_file is not None:
+          isi_file = upload_pdf(uploaded_file)
+          jawaban1 = text_jawaban.text_area("Answer:", isi_file, height=400)
+          st.session_state.jwb = jawaban1
+          st.write('File PDF berhasil terunggah')
             
 #if btn_insert:
 #  cursor = conn.cursor()
