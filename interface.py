@@ -114,12 +114,19 @@ if LOGGED_IN == True:
     if btn_save:
         score = evaluate_score(conn, text_jawaban, course_info, task_info, txt_soal)
         save_score(text_jawaban, score, course_info, add_identity, task_info)
-
+        
+    if 'uploaded_file' not in st.session_state:
+        st.session_state.uploaded_file = None
+        
     if btn_upload_pdf:
         st.write('Silahkan unggah PDF:')     
         uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
-        st.write('----1----')
+        
         if uploaded_file is not None:
+            # Store the uploaded file in session_state
+            st.session_state.uploaded_file = uploaded_file
+            
+        if st.session_state.uploaded_file is not None:
           isi_file = upload_pdf(uploaded_file)
           jawaban1 = text_jawaban_student.text_area("Answer:", isi_file, height=400)
           st.session_state.jwb = jawaban1
