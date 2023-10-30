@@ -108,12 +108,12 @@ if LOGGED_IN == True:
     #    btn_insert = st.button('Insert')
     
     if btn_evaluate:
-        score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
+        score = evaluate_score(conn, text_jawaban, course_info, task_info, txt_soal)
         st.text_input("Prediction Score", score, disabled=True)
     
     if btn_save:
-        score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
-        save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
+        score = evaluate_score(conn, text_jawaban, course_info, task_info, txt_soal)
+        save_score(text_jawaban, score, course_info, add_identity, task_info)
 
     if btn_upload_pdf:
         st.write('Silahkan unggah PDF:')     
