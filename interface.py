@@ -118,6 +118,7 @@ if LOGGED_IN == True:
     if btn_upload_pdf:
         st.write('Silahkan unggah PDF:')     
         uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
+        st.write('----1----')
         if uploaded_file is not None:
           isi_file = upload_pdf(uploaded_file)
           jawaban1 = text_jawaban_student.text_area("Answer:", isi_file, height=400)
