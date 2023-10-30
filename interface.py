@@ -125,6 +125,7 @@ if LOGGED_IN == True:
         if uploaded_file is not None:
             # Store the uploaded file in session_state
             st.session_state.uploaded_file = uploaded_file
+            st.write('File PDF berhasil terunggah')
             
         if st.session_state.uploaded_file is not None:
           isi_file = upload_pdf(st.session_state.uploaded_file)
