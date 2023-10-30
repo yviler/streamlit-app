@@ -19,23 +19,16 @@ def save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
   for row in table:
     course_id.append(row[0])
     
-  st.write(course_id)
-  
-  
   cursor.execute('SELECT studentID FROM aes_student WHERE studentName = ?', (add_identity, ))
   student_id = cursor.fetchone()
   task_info = "Task " + str(task_info)
-  st.write ("Task Info:", task_info)
-  st.write ("Course ID:", course_id)
   
   cursor.execute('SELECT assignmentID FROM aes_assignment WHERE courseID = ? AND assignmentType = ?', (course_id[0], task_info))
   assignment_id = cursor.fetchone()
 
-  st.write("=======4========")
   cursor.execute('SELECT answerTake FROM aes_student_answer_score WHERE studentName = ? AND courseID = ?', (add_identity, course_id[0]))
   result = cursor.fetchone()
 
-  st.write("=======5========")
   cursor.execute('SELECT answerID FROM aes_student_answer_score ORDER BY answerID DESC LIMIT 1')
   answer_id = cursor.fetchone()
   id = answer_id[0] + 2
