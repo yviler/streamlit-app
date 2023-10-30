@@ -127,7 +127,7 @@ if LOGGED_IN == True:
             st.session_state.uploaded_file = uploaded_file
             
         if st.session_state.uploaded_file is not None:
-          isi_file = upload_pdf(uploaded_file)
+          isi_file = upload_pdf(st.session_state.uploaded_file)
           jawaban1 = text_jawaban_student.text_area("Answer:", isi_file, height=400)
           st.session_state.jwb = jawaban1
           st.write('File PDF berhasil terunggah')
