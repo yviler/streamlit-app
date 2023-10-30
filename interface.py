@@ -89,9 +89,9 @@ if LOGGED_IN == True:
     #txt_soal1 = st.text_area("Question", question, disabled=True)
     
     text_jawaban_student = st.empty()
-    text_jawaban_student.text_area ("Answer:", "Tidak Menjawab", height=400)
+    text_jawaban = text_jawaban_student.text_area ("Answer:", "Tidak Menjawab", height=400)
     
-    #st.write(f'You wrote {len(text_jawaban_student)} characters.')
+    st.write(f'You wrote {len(text_jawaban)} characters.')
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
     
     with col1:
@@ -108,11 +108,11 @@ if LOGGED_IN == True:
     #    btn_insert = st.button('Insert')
     
     if btn_evaluate:
-        score = evaluate_score(conn, text_jawaban_student, course_info, task_info, txt_soal)
+        score = evaluate_score(conn, text_jawaban, course_info, task_info, txt_soal)
         st.text_input("Prediction Score", score, disabled=True)
     
     if btn_save:
-        score = evaluate_score(conn, text_jawaban_student, course_info, task_info, txt_soal)
+        score = evaluate_score(conn, text_jawaban, course_info, task_info, txt_soal)
         save_score(text_jawaban, score, course_info, add_identity, task_info)
 
     if btn_upload_pdf:
