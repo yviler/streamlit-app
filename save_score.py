@@ -35,7 +35,10 @@ def save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
 
   insert_query = '''INSERT INTO aes_student_answer_score (answerID, studentID, studentName, courseID, assignmentID, answerText, answerScore, answerTake, answerNoted, answerActivied, answerStatus)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'''
-
+  st.write(id)
+  st.write(student_id[0])
+  st.write(add_identity)
+  st.write(course_id[0], assignment_id[0], txt_jawaban_student, student_score, result[0])
   if result is not None:
     cursor.execute(insert_query, (id, student_id[0], add_identity, course_id[0], assignment_id[0], txt_jawaban_student, student_score, result[0] + 1, 'Ok', 1, 'Ok'))
 
