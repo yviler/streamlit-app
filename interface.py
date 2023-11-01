@@ -110,13 +110,4 @@ if LOGGED_IN == True:
         score = evaluate_score(conn, isi_file, course_info, task_info, txt_soal)
         save_score(isi_file, score, course_info, add_identity, task_info)
         
-    
-            
-#if btn_insert:
-#  cursor = conn.cursor()
-#  cursor.execute("INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')")
-#  conn.commit()
-#  cursor.close()
-#  conn.close()
-#st.write('Proses berhasil')
         
