@@ -1,4 +1,4 @@
-from modeling02 import scoring
+from modeling import scoring
 import streamlit as st
 
 def evaluate_score(conn, txt_jawaban_student, course_info, task_info, soal):
