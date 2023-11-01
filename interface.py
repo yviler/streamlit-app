@@ -103,7 +103,7 @@ if LOGGED_IN == True:
         if isi_file == "" :
           st.write("Please write your answer first")
         else:
-          score = evaluate_score(conn, isi_file, list_course, task_info, question)
+          score = evaluate_score(conn, isi_file, course_info, task_info, question)
     
     if btn_save:
         isi_file = text_jawaban
