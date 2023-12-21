@@ -86,10 +86,10 @@ if LOGGED_IN == True:
     #  ) 
         
     #txt_soal1 = st.text_area("Question", question, disabled=True)
-    
     txt_jawaban_student = st.text_area("Answer", "Tidak Menjawab", height=400)
     
     st.write(f'You wrote {len(txt_jawaban_student)} characters.')
+    
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
     
     with col1:

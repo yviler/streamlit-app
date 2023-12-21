@@ -13,8 +13,11 @@ import pandas as pd
 from streamlit_login_auth_ui.widgets import __login__
 from upload_pdf import upload_pdf
 import fitz
+import PyPDF2
 
 nomor_soal = 0
+isi_file = ""
+
 st.set_page_config(page_title="Page Title", layout="wide")
 
 st.markdown("""
@@ -75,21 +78,18 @@ if LOGGED_IN == True:
         question,
         disabled=True
       )
+       
+    text_jawaban_student = st.empty()
+    text_jawaban = text_jawaban_student.text_area ("Answer:", isi_file, height=400)
+    
+    st.write(f'You wrote {len(text_jawaban)} characters.')
+
+    uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
+    if uploaded_file is not None:
+        isi_file = upload_pdf(uploaded_file)
+        text_jawaban = text_jawaban_student.text_area("Answer:", isi_file, height=300)
+        st.write('File PDF Uploaded.')
       
-    #tabq1, tabq2, tabq3, tabq4 = st.tabs(["Question1", "Question2", "Question3","Question4"])    
-    #with tabq2:
-    #  question = load_question(conn, course_info, task_info,2) 
-    #  txt_soal = st.text_area(
-    #    "Question 2",
-    #    question,
-    #    disabled=True
-    #  ) 
-        
-    #txt_soal1 = st.text_area("Question", question, disabled=True)
-    
-    txt_jawaban_student = st.text_area("Answer", "Tidak Menjawab", height=400)
-    
-    st.write(f'You wrote {len(txt_jawaban_student)} characters.')
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
     
     with col1:
@@ -97,38 +97,17 @@ if LOGGED_IN == True:
     
     with col2:
         btn_save = st.button('Save')
-
-    with col3:
-        st.write("Upload answer via file:")
-        btn_upload = st.button('Upload PDF')
-    
-    #with col3:
-    #    btn_insert = st.button('Insert')
-    
+        
     if btn_evaluate:
-        st.write(evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal))
+        isi_file = text_jawaban
+        if isi_file == "" :
+          st.write("Please write your answer first")
+        else:
+          score = evaluate_score(conn, isi_file, course_info, task_info, question)
     
     if btn_save:
-        score = evaluate_score(conn, txt_jawaban_student, course_info, task_info, txt_soal)
-        save_score(txt_jawaban_student, score, course_info, add_identity, task_info)
-
-    #if btn_upload:
-    uploaded_file = st.file_uploader("Choose a file", type=["pdf","png", "JPG"], accept_multiple_files = False)
-    answer = []
-    st.write('Check 10000')
-    st.write('Sedang dalam proses mengunggah')
-    st.write(uploaded_file)
-    isi_file = upload_pdf(uploaded_file)
-    st.write(isi_file)
-    st.write('File PDF berhasil terunggah')
-    #answers.append(st.text_area('Write answer question ', isi_file ,height= 300))
-    st.text_area('Write answer question ', isi_file ,height= 300)
+        isi_file = text_jawaban
+        score = evaluate_score(conn, isi_file, course_info, task_info, txt_soal)
+        save_score(isi_file, score, course_info, add_identity, task_info)
         
-#if btn_insert:
-#  cursor = conn.cursor()
-#  cursor.execute("INSERT INTO aes_course(courseID, courseName, courseCredit) VALUES ('11','Basis Data','3')")
-#  conn.commit()
-#  cursor.close()
-#  conn.close()
-#st.write('Proses berhasil')
         
