@@ -1,3 +1,4 @@
+'''
 from modeling import scoring, test_prediction
 from save_score import save_score
 from model import model_load
@@ -128,3 +129,4 @@ if LOGGED_IN == True:
 #  conn.close()
 #st.write('Proses berhasil')
         
+'''
